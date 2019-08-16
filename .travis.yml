@@ -1,6 +1,6 @@
 --- 
 before_script: 
-  - "psql -c 'create database {{.opts.App.Name.File}}_test;' -U postgres"
+  - "psql -c 'create database github_cash_test;' -U postgres"
   - "mkdir -p $TRAVIS_BUILD_DIR/public/assets"
 env: 
   - GO_ENV=test
