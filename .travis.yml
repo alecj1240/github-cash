@@ -13,7 +13,6 @@ go_import_path:
   : ~
 install: 
   - "go get github.com/gobuffalo/buffalo/buffalo"
-  - "go mod init"
 language: go
 script: "buffalo test"
 services: 
