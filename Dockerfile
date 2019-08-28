@@ -2,13 +2,14 @@
 # https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 FROM gobuffalo/buffalo:v0.14.7 as builder
 
-RUN mkdir -p $GOPATH/src/Desktop
-WORKDIR $GOPATH/src/Desktop
+RUN mkdir -p github_cash
+WORKDIR github_cash
 
 ADD . .
 ENV GO111MODULES=on
 RUN go get ./...
 RUN buffalo build --static -o /bin/app
+RUN buffalo db create
 
 FROM alpine
 RUN apk add --no-cache bash
@@ -28,4 +29,5 @@ EXPOSE 3000
 
 # Uncomment to run the migrations before running the binary:
 # CMD /bin/app migrate; /bin/app
+
 CMD exec /bin/app

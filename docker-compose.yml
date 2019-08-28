@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    depends_on:
+      - db
+    build:
+      context: ./
+  db:
+    image: postgres:11
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
