@@ -1,4 +1,4 @@
-package models
+package modelstests
 
 import (
 	"testing"
@@ -12,7 +12,7 @@ type ModelSuite struct {
 }
 
 func Test_ModelSuite(t *testing.T) {
-	model, err := suite.NewModelWithFixtures(packr.NewBox("../fixtures"))
+	model, err := suite.NewModelWithFixtures(packr.NewBox("../../fixtures"))
 	if err != nil {
 		t.Fatal(err)
 	}

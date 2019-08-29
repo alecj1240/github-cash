@@ -1,4 +1,4 @@
-package actions
+package actiontests
 
 func (as *ActionSuite) Test_HomeHandler() {
 	res := as.JSON("/").Get()
